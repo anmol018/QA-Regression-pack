@@ -20,6 +20,10 @@ let compn;
 let compalias;
 let compph;
 let compwebsite;
+let contfname;
+let contlname;
+let contemail;
+let contph;
 	describe('My First Test', function () {
 		
 		
@@ -31,7 +35,7 @@ let compwebsite;
     form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
     body: {
       emailid: 'mritunjay.sinha@oxanepartners.com',
-      password: '123456',
+      password: 'Oxane@123',
 	  _csrf: csrfToken // insert this as part of form body
     }
 	})
@@ -77,6 +81,10 @@ let compwebsite;
 			compalias = `FF${srandomnumbers()}`
 			compph = `${randomnumbers()}`
 			compwebsite = `www.${str1()}.com`
+			contfname = `Eddie${srandomnumbers()}`
+			contlname = `Brown${srandomnumbers()}`
+			contemail = `${str1()}@testmail.com`
+			contph = `${randomnumbers()}`
 			cy.get('#addTransactionListDiv > div').click({ force: true })
 			//cy.get('#addTransactionListDiv > .border').click()
 			//cy.get('.ptb5').click()
@@ -84,57 +92,57 @@ let compwebsite;
 			//Add Deal Name
 			cy.get('.shadow > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2) > .ng-pristine')
 			.should('be.visible').type(tname)
-			
 			//Add Internal Strategy
 			cy.get(':nth-child(1) > :nth-child(3) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(1) > :nth-child(3) > :nth-child(2) > .ng-pristine > .wid-100 > .ui-select-dropdown').contains('Debt Strategy').click()
+			cy.get(':nth-child(1) > :nth-child(3) > :nth-child(2) > .ng-pristine > .wid-100 > .ui-select-dropdown').contains('Debt Investment Management').click()
 			cy.get(':nth-child(1) > :nth-child(3) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(1) > :nth-child(3) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('EU Mid-Mkt')
+			cy.get(':nth-child(1) > :nth-child(3) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('Debt Investment Management')
 			cy.get('.ui-select-highlight').click()
-			//Add Mandates, here we are adding two Different Mandates
-			//Adding First Mandate
-			cy.get(':nth-child(4) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
-			cy.get('.absolute').contains('Transaction Management').click()
-			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
-			cy.get(':nth-child(4) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
-			cy.get('.absolute > :nth-child(1) > .wid-100').type('Asset Management').click()
-			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
-			//Adding Second Mandate
-			cy.get(':nth-child(4) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
-			cy.get('.absolute').contains('Acquisition Management').click()
-			cy.get('[ng-if="vm.showInfo"]').click()
-			cy.get(':nth-child(4) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
-			cy.get('.absolute > :nth-child(1) > .wid-100').type('Financial Management')
-			cy.get('.scroll-y > .wid-100 > .mr10').click()
-			cy.get('[ng-if="vm.showInfo"]').click()
+			//Adding Fund
+			cy.get(':nth-child(4) > :nth-child(2) > .ng-invalid > .wid-100 > .select2-choice > .select2-arrow > b').click()
+			cy.get(':nth-child(4) > :nth-child(2) > .ng-invalid > .wid-100 > .ui-select-dropdown').contains('ECO Tranche').click()
+			cy.get(':nth-child(1) > :nth-child(4) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
+			cy.get(':nth-child(1) > :nth-child(4) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('ECO Tranche')
+			cy.get('.select2-result-label > div').click()
 			//Add Clients, here we are adding two different clients
 			//Adding First Client Name
 			cy.get(':nth-child(5) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
 			cy.get('.absolute').contains('ABN Amro Group NV').click()
-			cy.get('[ng-if="vm.showInfo"]').click()
-			cy.get(':nth-child(5) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
-			cy.get('.absolute > :nth-child(1) > .wid-100').type('Augusta Ventures')
-			cy.get('.scroll-y > :nth-child(1) > .mr10').click()
-			cy.get('[ng-if="vm.showInfo"]').click()
+			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
+			//cy.get(':nth-child(5) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
+			//cy.get('.absolute > :nth-child(1) > .wid-100').type('GIC Private Limited')
+			//cy.get('.scroll-y > :nth-child(1) > .mr10').click()
+			//cy.get('#transactionForm > .shadow > :nth-child(1)').click()
 			//Adding Second Client Name
-			cy.get(':nth-child(5) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
-			cy.get('.absolute').contains('AGRO Invest').click()
-			cy.get('[ng-if="vm.showInfo"]').click()
-			cy.get(':nth-child(5) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
-			cy.get('.absolute > :nth-child(1) > .wid-100').type('Pluto finace')
-			cy.get('.scroll-y > :nth-child(1) > .mr10').click()
-			cy.get('[ng-if="vm.showInfo"]').click()
+			//cy.get(':nth-child(5) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
+			//cy.get('.absolute').contains('GIC Private Limited').click()
+			//cy.get('#transactionForm > .shadow > :nth-child(1)').click()
+			//cy.get(':nth-child(5) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
+			//cy.get('.absolute > :nth-child(1) > .wid-100').type('Pluto finace')
+			//cy.get('.scroll-y > :nth-child(1) > .mr10').click()
+			//cy.get('[ng-if="vm.showInfo"]').click()
+			//Add Mandates, here we are adding two Different Mandates
+			//Adding First Mandate
+			cy.get(':nth-child(6) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click(3)
+			cy.get('.absolute').contains('Transaction Management').click()
+			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
+			cy.get(':nth-child(6) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
+			cy.get('.absolute > :nth-child(1) > .wid-100').type('Asset Management')
+			//cy.get('.absolute').contains('Asset Management').click()
+			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
+			//Adding Second Mandate
+			cy.get(':nth-child(6) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
+			cy.get('.absolute').contains('Acquisition Management').click()
+			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
+			cy.get(':nth-child(6) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
+			cy.get('.absolute > :nth-child(1) > .wid-100').type('Financial Management')
+			cy.get('.absolute').contains('Financial Management').click()
+			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
 			//Adding Entity
-			cy.get(':nth-child(1) > :nth-child(6) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(6) > :nth-child(2) > .ng-invalid > .wid-100 > .ui-select-dropdown').contains('CCL').click()
-			cy.get(':nth-child(1) > :nth-child(6) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(6) > :nth-child(2) > .ng-valid-required > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('CCL')
-			cy.get('#ui-select-choices-row-1-0 > .select2-result-label').click()
-			//Adding Fund
 			cy.get(':nth-child(1) > :nth-child(7) > :nth-child(2) > .ng-invalid > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(1) > :nth-child(7) > :nth-child(2) > .ng-invalid > .wid-100 > .ui-select-dropdown > .ui-select-choices').contains('UKMMKT').click()
-			cy.get(':nth-child(7) > :nth-child(2) > .ng-valid-required > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(7) > :nth-child(2) > .ng-valid-required > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('UKMMKT')
+			cy.get(':nth-child(1) > :nth-child(7) > :nth-child(2) > .ng-invalid > .wid-100 > .ui-select-dropdown').contains('CCL').click()
+			cy.get(':nth-child(1) > :nth-child(7) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
+			cy.get(':nth-child(1) > :nth-child(7) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('CCL')
 			cy.get('.select2-result-label > div').click()
 			//Adding Deal Status
 			cy.get(':nth-child(8) > :nth-child(2) > .ng-valid-required > .wid-100 > .select2-choice > .select2-arrow > b').click()
@@ -150,41 +158,39 @@ let compwebsite;
 			cy.get('#ui-select-choices-row-4-0 > .select2-result-label > div').click()
 			//Adding Deal Owner
 			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Anmol Sahi').click()
+			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Manish Maheshwari').click()
 			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('Anmol Sahi')
+			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('Manish Maheshwari')
 			cy.get('.select2-result-label > div').click()
 			//Adding Seller from the Dropdown
 			cy.get(':nth-child(11) > .input-group > select-box.ng-pristine > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(11) > .input-group > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Augusta Ventures').click()
+			cy.get(':nth-child(11) > .input-group > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('ABC International Bank').click()
 			cy.get(':nth-child(11) > .input-group > select-box.ng-pristine > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(11) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('AGRO Invest')
+			cy.get(':nth-child(11) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('Starz Real Estate')
 			cy.get('.select2-result-label > div').click()
 			cy.get(':nth-child(11) > .input-group > .vCenter').click()
 			cy.get('.input-form > :nth-child(1) > :nth-child(2) > .ng-pristine').type(compn)
 			cy.get('.ng-invalid.ng-dirty > .input-form > :nth-child(2) > :nth-child(2) > .ng-pristine').type(compalias)
 			cy.get(':nth-child(3) > :nth-child(2) > .fr > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get('.select2-container-active > .ui-select-dropdown').contains('Broker').click()
+			cy.get('.select2-container-active > .ui-select-dropdown').contains('Advisor').click()
 			cy.get('.fr > .relative > .wid-100 > .ellipsis').click()
-			cy.get('.ng-invalid.ng-dirty > .input-form > :nth-child(4)').contains('Broker Sub 1').click()
-			cy.get('.absolute > :nth-child(1) > .fr').click()
+			cy.get('.absolute').contains('Investment Bank').click()
+			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(5) > :nth-child(1)').click()
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(5) > :nth-child(2) > .ng-pristine').type(compph)
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(6) > :nth-child(2) > .ng-pristine').type(compwebsite)
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(7) > :nth-child(2) > .ng-invalid > .wid-100 > .select2-choice > .select2-arrow > b').click()
 			cy.get('.select2-container-active > .ui-select-dropdown').contains('Tanmaya Sanghvi').click()
 			cy.contains('.btn', 'Save').click()
 			cy.get(':nth-child(11) > .input-group > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(11) > .input-group > .ng-untouched > .wid-100 > .ui-select-dropdown').contains(compn).click()
+			cy.get(':nth-child(11) > .input-group > .ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type(compn)
+			cy.get('#ui-select-choices-row-6-0 > .select2-result-label').click()
 			//Adding Sponsor
 			cy.get(':nth-child(12) > .input-group > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(12) > .input-group > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('AGRO Invest').click()
+			cy.get(':nth-child(12) > .input-group > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Accrue').click()
 			//Adding Borrower
 			cy.get(':nth-child(1) > :nth-child(13) > :nth-child(2) > .ng-pristine').type('Augusta Ventures')
-			//cy.get(':nth-child(13) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown').contains('Augusta Ventures').click()
 			//Adding Borrower Contact
 			cy.get(':nth-child(1) > :nth-child(14) > :nth-child(2) > .ng-pristine').type('Kajal Kumari')
-			//cy.get(':nth-child(14) > .input-group > select-box.ng-pristine > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			//cy.get(':nth-child(14) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown').contains('Gaurav Agarwal').click()
 			//Adding Exclusivity
 			cy.get(':nth-child(15) > :nth-child(2) > select-box.wid-100 > .wid-100 > .select2-choice').contains('No')
 			cy.get(':nth-child(15) > :nth-child(2) > select-box.wid-100 > .wid-100 > .select2-choice > .select2-arrow > b').click()
@@ -222,21 +228,43 @@ let compwebsite;
 			cy.get('[style="margin: 0 5%;"] > :nth-child(13) > :nth-child(2) > .ng-pristine').type(tconnections)
 			//Adding Closing Date
 			cy.get('.vCenter.flex > .flex > .vCenter > .icon-calendar').click()
+			cy.get('.ui-datepicker-next > .ui-icon').click()
 			cy.get(':nth-child(5) > :nth-child(3) > .ui-state-default').click()
 			//Adding Date Listed
-			//cy.get('#dp1527841406966').type('31-May-2018')
+			cy.get(':nth-child(15) > li.vCenter > .flex > .vCenter > .icon-calendar').click()
+			cy.get(':nth-child(5) > :nth-child(3) > .ui-state-default').click()
+			//Adding Next Phase Target Date
+			cy.get('[ng-if="!vm.transactionInformation.transactionId"] > li.vCenter > .flex > .vCenter > .icon-calendar').click()
+			cy.get('.ui-datepicker-next > .ui-icon').click()
+			cy.get('.ui-datepicker-next > .ui-icon').click()
+			cy.get(':nth-child(5) > :nth-child(3) > .ui-state-default').click()
 			//Adding Origination Source
 			cy.get('.input-form.fr > :nth-child(2) > :nth-child(2) > .ng-valid-required > .wid-100 > .select2-choice > .select2-arrow > b').click()
 			cy.get('.input-form.fr > :nth-child(2) > :nth-child(2) > .ng-valid-required > .wid-100 > .ui-select-dropdown').contains('Broker').click()
 			//Adding Source Name
+			cy.get(':nth-child(3) > .input-group > .ng-untouched > .wid-100 > .select2-choice > [ng-hide="$select.isEmpty()"]')
+			.should('have.text', 'Oxane Partners')
 			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown').contains('AGRO Invest').click()
+			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type(compn)
+			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown').click()
 			//Adding Primary Contact
 			cy.get(':nth-child(4) > .input-group > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(4) > .input-group > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Eddie mikelson').click()
+			cy.get(':nth-child(4) > .input-group > .vCenter').click()
+			cy.get('.popup-foot > .btn').click()
+			cy.get(':nth-child(4) > .input-group > .vCenter').click()
+			cy.get('.input-form > :nth-child(1) > :nth-child(2) > .ng-pristine').type(contfname)
+			cy.get('.fr > :nth-child(2) > .ng-pristine').type(contlname)
+			//cy.get('form.ng-pristine > .input-form > :nth-child(3) > :nth-child(2) > .wid-100')
+			//.should('have.text' , compn)
+			cy.get('.ng-invalid.ng-dirty > .input-form > :nth-child(4) > :nth-child(2) > .ng-pristine').type(contemail)
+			cy.get('form.ng-valid-maxlength > .input-form > :nth-child(5) > :nth-child(2) > .ng-pristine').type(contph)
+			cy.contains('.btn', 'Save').click()
+			cy.get(':nth-child(4) > .input-group > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
+			cy.get(':nth-child(4) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type(contfname)
+			cy.get(':nth-child(4) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown > .ui-select-choices').click()
 			//Adding Strategy Head
 			cy.get('.input-form.fr > :nth-child(5) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get('.input-form.fr > :nth-child(5) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Anmol Sahi').click()
+			cy.get('.input-form.fr > :nth-child(5) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Manish Maheshwari').click()
 			//Adding Office
 			cy.get('.input-form.fr > :nth-child(6) > :nth-child(2) > select-box.wid-100 > .wid-100 > .select2-choice > .select2-arrow > b').click()
 			cy.get('.input-form.fr > :nth-child(6) > :nth-child(2) > select-box.wid-100 > .wid-100 > .ui-select-dropdown').contains('Lisbon').click()
@@ -263,7 +291,7 @@ let compwebsite;
 			cy.get('.mb10 > .ng-pristine').type('Portoflio of residential properties originally developed as social housing and acquired by Apollo Leases are now close to their end and the properties cna be sold or let at market levels Apollo interested in disposing this portoflio the strategy would be either letting to sell or selling individual units Pending reception of detailed information')
 			//Saving the Transaction
 			cy.contains('.btn', 'Save').click()
-			cy.wait(2000)
+			cy.wait(10000)
 			//Searching the Saved Transaction on the Blotter Screen
 			cy.get('.fr.mr10 > .flex > .flex-1')
 				  .should('be.visible').type(tname)
@@ -271,11 +299,13 @@ let compwebsite;
 			  cy.wait(2000)
 			  //Setting up Transaction 
 			  cy.get(':nth-child(3) > .wid-100 > .icon-downArrow').click()
-			  cy.get(':nth-child(3) > .noStyle > .m0 > .wid-100').click()
+			  cy.get(':nth-child(3) > .noStyle > .m0 > .wid-100').click() 
+			  cy.get('.left > .noStyle > :nth-child(3)').click()
 			  cy.contains('.nav_three_link', 'Manage Permissions').click()
 			  cy.get('.mt5').click()
 			  cy.get('.right > .btn').click()
-			  cy.get('.main-menu > :nth-child(1) > .wid-100').click()
+			  cy.wait(5000)
+			  cy.get('.icon-home').click()
 			  //Navigation to Pipeline Module
 			  cy.visit('fund#!/pipeline/report')
 			  cy.wait(5000)
