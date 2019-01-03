@@ -34,8 +34,8 @@ let contph;
     url: '/login', // baseUrl is prepended to url
     form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
     body: {
-      emailid: 'mritunjay.sinha@oxanepartners.com',
-      password: 'Oxane@123',
+      emailid: 'ram.shukla@oxanepartners.com',
+      password: 'Oxane@124',
 	  _csrf: csrfToken // insert this as part of form body
     }
 	})
@@ -61,7 +61,7 @@ let contph;
 			
 			//Xenon Landing Page
 			cy.get('.pr5')
-			.should('be.visible').contains('Mritunjay Sinha')
+			.should('be.visible').contains('Ram Shukla')
 			cy.get('[ui-sref="blotter"] > :nth-child(1) > .circle')
 			.should('be.visible').click()
 			//Add Transaction Page
@@ -127,8 +127,8 @@ let contph;
 			cy.get('.absolute').contains('Transaction Management').click()
 			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
 			cy.get(':nth-child(6) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
-			cy.get('.absolute > :nth-child(1) > .wid-100').type('Asset Management')
-			//cy.get('.absolute').contains('Asset Management').click()
+			cy.get('.absolute > :nth-child(1) > .wid-100').type('Fund Management')
+			cy.get('.absolute').contains('Fund Management').click()
 			cy.get('#transactionForm > .shadow > :nth-child(1)').click()
 			//Adding Second Mandate
 			cy.get(':nth-child(6) > :nth-child(2) > .ng-pristine > .relative > .wid-100 > .ml-auto').click()
@@ -158,9 +158,9 @@ let contph;
 			cy.get('#ui-select-choices-row-4-0 > .select2-result-label > div').click()
 			//Adding Deal Owner
 			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Manish Maheshwari').click()
+			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Alex Rowbottom').click()
 			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('Manish Maheshwari')
+			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('Aatif Khan')
 			cy.get('.select2-result-label > div').click()
 			//Adding Seller from the Dropdown
 			cy.get(':nth-child(11) > .input-group > select-box.ng-pristine > .wid-100 > .select2-choice > .select2-arrow > b').click()
@@ -179,7 +179,7 @@ let contph;
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(5) > :nth-child(2) > .ng-pristine').type(compph)
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(6) > :nth-child(2) > .ng-pristine').type(compwebsite)
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(7) > :nth-child(2) > .ng-invalid > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get('.select2-container-active > .ui-select-dropdown').contains('Tanmaya Sanghvi').click()
+			cy.get('.select2-container-active > .ui-select-dropdown').contains('Andreas Costa').click()
 			cy.contains('.btn', 'Save').click()
 			cy.get(':nth-child(11) > .input-group > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
 			cy.get(':nth-child(11) > .input-group > .ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type(compn)
@@ -232,6 +232,7 @@ let contph;
 			cy.get(':nth-child(5) > :nth-child(3) > .ui-state-default').click()
 			//Adding Date Listed
 			cy.get(':nth-child(15) > li.vCenter > .flex > .vCenter > .icon-calendar').click()
+			cy.get('.ui-datepicker-prev > .ui-icon').click()
 			cy.get(':nth-child(5) > :nth-child(3) > .ui-state-default').click()
 			//Adding Next Phase Target Date
 			cy.get('[ng-if="!vm.transactionInformation.transactionId"] > li.vCenter > .flex > .vCenter > .icon-calendar').click()
@@ -243,7 +244,7 @@ let contph;
 			cy.get('.input-form.fr > :nth-child(2) > :nth-child(2) > .ng-valid-required > .wid-100 > .ui-select-dropdown').contains('Broker').click()
 			//Adding Source Name
 			cy.get(':nth-child(3) > .input-group > .ng-untouched > .wid-100 > .select2-choice > [ng-hide="$select.isEmpty()"]')
-			.should('have.text', 'Oxane Partners')
+			.should('have.text', 'CR Management')
 			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .select2-choice > .select2-arrow > b').click()
 			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type(compn)
 			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown').click()

@@ -4,8 +4,12 @@ const randomnumbers = () => Math.floor(Math.random() * 10000000);
 const lrandomnumbers = () => Math.floor(Math.random() * 10000);	
 const mrandomnumbers = () => Math.floor(Math.random() * 1000);
 const srandomnumbers = () => Math.floor(Math.random() * 100);
+const yrandomnumbers = () => Math.floor(Math.random() * (2018-1900+1) + 1900);
+
 
 let tvalue;
+let lvalue;
+let fyear
 let tarea;
 let mvalue;
 let compn;
@@ -23,8 +27,8 @@ let randtext;
     url: '/login', // baseUrl is prepended to url
     form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
     body: {
-      emailid: 'mritunjay.sinha@oxanepartners.com',
-      password: 'Oxane@123',
+      emailid: 'ram.shukla@oxanepartners.com',
+      password: 'Oxane@124',
 	  _csrf: csrfToken // insert this as part of form body
     }
 	})
@@ -34,6 +38,8 @@ let randtext;
 	cy.clearLocalStorage()
   })
   tvalue = `${randomnumbers()}`
+  lvalue = `${randomnumbers()}`
+  fyear = `${yrandomnumbers()}`
   tarea = `${lrandomnumbers()}`
   mvalue = `${randomnumbers()}`
   compn = `Finance${randomnumbers()}`
@@ -62,18 +68,18 @@ let randtext;
             cy.visit('/fund#!/crm-companies')
 			//Adding Company
 			cy.get('.btn').click()
-            //Add Company and Contact Details with mandatory fields
-            cy.get('.pr10 > :nth-child(1) > :nth-child(1) > :nth-child(2) > .ng-pristine').type(compn)
+      //Add Company and Contact Details with mandatory fields
+      cy.get('.pr10 > :nth-child(1) > :nth-child(1) > :nth-child(2) > .ng-pristine').type(compn)
 			cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > .ng-pristine').type(compalias)
 			cy.get(':nth-child(2) > :nth-child(1) > :nth-child(2) > select-box.wid-100 > .wid-100 > .select2-choice > .select2-arrow > b').click()
-            cy.get('.select2-container-active > .ui-select-dropdown').contains('Advisor').click()
-            cy.get("[name='companySubType']").click()
-            cy.get('.absolute').contains('Investment Bank').click()
-            cy.get(':nth-child(3) > :nth-child(1) > :nth-child(2) > .ng-pristine').type(randtext)
-            cy.get(':nth-child(3) > :nth-child(2) > :nth-child(2) > .ng-pristine').type(tarea)
-            cy.get('.wid-40 > .wid-100 > .select2-choice > .select2-arrow > b').click()
-            cy.get('.select2-container-active > .ui-select-dropdown').contains('EUR').click()
-            cy.get(':nth-child(4) > :nth-child(1) > :nth-child(2) > .wid-100.fl > .pl5').type(tvalue)
+      cy.get('.select2-container-active > .ui-select-dropdown').contains('Advisor').click()
+      cy.get("[name='companySubType']").click()
+      cy.get('.absolute').contains('Investment Bank').click()
+      cy.get(':nth-child(3) > :nth-child(1) > :nth-child(2) > .ng-pristine').type(lvalue)
+      cy.get(':nth-child(3) > :nth-child(2) > :nth-child(2) > .ng-pristine').type(tarea)
+      cy.get('.wid-40 > .wid-100 > .select2-choice > .select2-arrow > b').click()
+      cy.get('.select2-container-active > .ui-select-dropdown').contains('EUR').click()
+      cy.get(':nth-child(4) > :nth-child(1) > :nth-child(2) > .wid-100.fl > .pl5').type(tvalue)
 			cy.get('.icon-calendar').click()
 			//***This needs to be changed as it is a date function */
 			cy.get(':nth-child(4) > :nth-child(5) > .ui-state-default').click()
