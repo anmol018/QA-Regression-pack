@@ -158,9 +158,9 @@ let contph;
 			cy.get('#ui-select-choices-row-4-0 > .select2-result-label > div').click()
 			//Adding Deal Owner
 			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Alex Rowbottom').click()
+			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown').contains('Anmol Sahi').click()
 			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('Aatif Khan')
+			cy.get(':nth-child(10) > :nth-child(2) > .ng-untouched > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type('Ram Shukla')
 			cy.get('.select2-result-label > div').click()
 			//Adding Seller from the Dropdown
 			cy.get(':nth-child(11) > .input-group > select-box.ng-pristine > .wid-100 > .select2-choice > .select2-arrow > b').click()
@@ -179,7 +179,7 @@ let contph;
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(5) > :nth-child(2) > .ng-pristine').type(compph)
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(6) > :nth-child(2) > .ng-pristine').type(compwebsite)
 			cy.get('.ng-invalid.ng-valid-maxlength > .input-form > :nth-child(7) > :nth-child(2) > .ng-invalid > .wid-100 > .select2-choice > .select2-arrow > b').click()
-			cy.get('.select2-container-active > .ui-select-dropdown').contains('Andreas Costa').click()
+			cy.get('.select2-container-active > .ui-select-dropdown').contains('Tanmaya Sanghvi').click()
 			cy.contains('.btn', 'Save').click()
 			cy.get(':nth-child(11) > .input-group > .ng-untouched > .wid-100 > .select2-choice > .select2-arrow > b').click()
 			cy.get(':nth-child(11) > .input-group > .ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type(compn)
@@ -244,7 +244,7 @@ let contph;
 			cy.get('.input-form.fr > :nth-child(2) > :nth-child(2) > .ng-valid-required > .wid-100 > .ui-select-dropdown').contains('Broker').click()
 			//Adding Source Name
 			cy.get(':nth-child(3) > .input-group > .ng-untouched > .wid-100 > .select2-choice > [ng-hide="$select.isEmpty()"]')
-			.should('have.text', 'CR Management')
+			.should('have.text', 'Oxane Partners')
 			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .select2-choice > .select2-arrow > b').click()
 			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown > .search-container > .ui-select-search').type(compn)
 			cy.get(':nth-child(3) > .input-group > select-box.ng-pristine > .wid-100 > .ui-select-dropdown').click()
@@ -312,8 +312,8 @@ let contph;
 			  cy.wait(5000)
 			  cy.get('.mr10 > .flex > .flex-1')
 				  .should('be.visible').type(tname)
-			  cy.wait(2000)
 			  cy.get('.clickable').click()
+			  cy.wait(2000) 
 			  cy.get('.btn').click()
 			  cy.get('.flex > .icon-menu').click()
 			 //Saving Transaction Again 
